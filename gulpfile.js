@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var del = require('del');
-var ngAnnotate = require('gulp-ng-annotate');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var minify = require('gulp-minify-css');
@@ -44,7 +43,6 @@ gulp.task('scss', function () {
 gulp.task('js', function () {
 	var s = gulp.src(allJs);
 	s = s.pipe(sourceMaps.init());
-	s = s.pipe(ngAnnotate());
 	s = s.pipe(uglify());
 	s = s.pipe(concat('app.js'));
 	s = s.pipe(sourceMaps.write('maps/'));
